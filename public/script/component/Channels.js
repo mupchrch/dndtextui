@@ -12,7 +12,11 @@ class Channels extends React.Component {
 
   componentDidMount() {
     // TODO do I need a polyfill?
-    fetch('api/public/channels', {headers: {'Accept': 'application/json'}})
+    // TODO create a wrapper for this (so I don't have to set headers, credentials, etc every time)
+    fetch('api/channels', {
+      credentials: "same-origin",
+      headers: {'Accept': 'application/json'}
+    })
     .then((response) => {
       return response.json();
     })
