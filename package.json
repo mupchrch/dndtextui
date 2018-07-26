@@ -23,6 +23,7 @@
   },
   "scripts": {
     "build": "webpack --progress",
-    "start": "node lib/index"
+    "start": "node lib/index",
+    "debug": "node --inspect lib/index"
   }
 }
