@@ -1,7 +1,7 @@
 import React from 'react';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import Home from './Home';
-import Channels from './Channels'
+import DataTable from './DataTable'
 import '../../style/App.scss';
 
 class App extends React.Component {
@@ -10,7 +10,7 @@ class App extends React.Component {
       <BrowserRouter>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/data/channels" component={Channels} />
+          <Route path="/data" component={DataTable} />
         </Switch>
       </BrowserRouter>
     );
