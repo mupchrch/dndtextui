@@ -13,7 +13,7 @@ class DataTable extends React.Component {
   componentDidMount() {
     // TODO do I need a polyfill?
     // TODO create a wrapper for this (so I don't have to set headers, credentials, etc every time)
-    fetch(this.props.location.pathname.replace('/data', 'api'), {
+    fetch(this.props.location.pathname.replace('/data', 'api') + this.props.location.search, {
       credentials: 'same-origin',
       headers: {'Accept': 'application/json'}
     })
