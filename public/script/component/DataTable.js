@@ -25,7 +25,7 @@ class DataTable extends React.Component {
         responseJson = [responseJson];
       }
 
-      this.setState({dataRows: responseJson})
+      this.setState({dataRows: responseJson});
     });
   }
 

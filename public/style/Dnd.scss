@@ -1,0 +1,17 @@
+$leftBarWidth: 220px;
+
+.dnd-container {
+  height: 100%;
+
+  .left-bar {
+    position: fixed;
+    width: $leftBarWidth;
+    height: 100%;
+    background-color: lightgray;
+  }
+
+  .main-area {
+    margin-left: $leftBarWidth;
+    height: 100%;
+  }
+}
