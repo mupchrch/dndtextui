@@ -3,4 +3,8 @@
   line-height: 24px;
   padding-left: 6px;
   padding-right: 6px;
+
+  &.selected-channel {
+    background-color: white;
+  }
 }

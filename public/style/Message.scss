@@ -1,0 +1,56 @@
+$userIconSize: 36px;
+
+.message {
+  padding: 5px 10px;
+  display: flex;
+
+  .timestamp {
+    color: #717274;
+    font-size: 12px;
+  }
+
+  .message-header {
+    display: flex;
+    align-items: center;
+
+    .timestamp {
+      padding-left: 6px;
+    }
+  }
+
+  &:hover {
+    background-color: #eee;
+
+    .message-gutter .timestamp {
+      visibility: visible;
+    }
+  }
+
+  .message-gutter {
+    min-width: 60px;
+    display: flex;
+    align-items: center;
+
+    & .timestamp {
+      visibility: hidden;
+    }
+
+    .user-icon {
+      width: $userIconSize;
+      height: $userIconSize;
+      background-color: lightgray;
+    }
+  }
+
+  .message-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    .message-content {
+      margin-top: auto;
+      white-space: pre-wrap;
+      line-height: 1.3;
+    }
+  }
+}

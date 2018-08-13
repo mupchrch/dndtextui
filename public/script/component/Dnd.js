@@ -1,5 +1,6 @@
 import React from 'react';
 import ChannelList from './ChannelList';
+import Channels from './Channels';
 import Ajax from '../ajax';
 import '../../style/Dnd.scss';
 
@@ -40,12 +41,16 @@ class Dnd extends React.Component {
       <div className="dnd-container">
         <div className="left-bar">
           <ChannelList
+            selectedChannelId={this.state.selectedChannelId}
             channels={this.state.channels}
             onSelectChannel={this.onSelectChannel.bind(this)}
           />
         </div>
         <div className="main-area">
-          selected channel: {this.state.selectedChannelId}
+          <Channels
+            channels={this.state.channels}
+            selectedChannelId={this.state.selectedChannelId}
+          />
         </div>
       </div>
     );
