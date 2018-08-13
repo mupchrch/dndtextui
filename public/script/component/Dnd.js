@@ -1,5 +1,6 @@
 import React from 'react';
 import ChannelList from './ChannelList';
+import Ajax from '../ajax';
 import '../../style/Dnd.scss';
 
 class Dnd extends React.Component {
@@ -13,16 +14,10 @@ class Dnd extends React.Component {
   }
 
   componentDidMount() {
-    fetch('api/channels', {
-      credentials: 'same-origin',
-      headers: {'Accept': 'application/json'}
-    })
-    .then((response) => {
-      return response.json();
-    })
-    .then((responseJson) => {
-      this.setState({channels: responseJson});
-    });
+    Ajax.get('api/channels')
+      .then((channels) => {
+        this.setState({channels: channels});
+      });
   }
 
   /**

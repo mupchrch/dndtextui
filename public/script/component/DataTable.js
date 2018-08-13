@@ -1,4 +1,5 @@
 import React from 'react';
+import Ajax from '../ajax';
 import '../../style/DataTable.scss';
 
 class DataTable extends React.Component {
@@ -11,22 +12,16 @@ class DataTable extends React.Component {
   }
 
   componentDidMount() {
-    // TODO do I need a polyfill?
-    // TODO create a wrapper for this (so I don't have to set headers, credentials, etc every time)
-    fetch(this.props.location.pathname.replace('/data', 'api') + this.props.location.search, {
-      credentials: 'same-origin',
-      headers: {'Accept': 'application/json'}
-    })
-    .then((response) => {
-      return response.json();
-    })
-    .then((responseJson) => {
-      if (!Array.isArray(responseJson)) {
-        responseJson = [responseJson];
-      }
+    const queryString = this.props.location.pathname.replace('/data', 'api') + this.props.location.search;
 
-      this.setState({dataRows: responseJson});
-    });
+    Ajax.get(queryString)
+      .then((json) => {
+        if (!Array.isArray(responseJson)) {
+          json = [json];
+        }
+
+        this.setState({dataRows: json});
+      });
   }
 
   buildRow(rowObj, key) {
